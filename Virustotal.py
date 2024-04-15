@@ -18,14 +18,14 @@ os.system("cls")
 ROBMO = "═══════ • 𝐑𝐎𝐁𝐌𝐎 𝐂𝐋𝐎𝐔𝐃 • ════════"
 
 user = os.getlogin()
-save_path = f"C:\\Users\\{user}\\Desktop\\𝐏𝐚𝐬𝐬𝐓𝐫𝐚𝐜𝐤𝐞𝐫 ™\\𝐆𝐎𝐎𝐃\\𝐆𝐎𝐎𝐃[𝐕.𝐓][𝐑𝐎𝐁𝐌𝐎 𝐂𝐋𝐎𝐔𝐃].txt"
+save_path = f"C:\\Users\\{user}\\Desktop\\𝐏𝐚𝐬𝐬𝐓𝐫𝐚𝐜𝐤𝐞𝐫 ™\\GOOD\\𝐆𝐎𝐎𝐃[𝐕.𝐓][𝐑𝐎𝐁𝐌𝐎 𝐂𝐋𝐎𝐔𝐃].txt"
 
 passtracker = Path(f'C:/Users/{user}/Desktop/𝐏𝐚𝐬𝐬𝐓𝐫𝐚𝐜𝐤𝐞𝐫 ™')
 
 if not passtracker.exists():
     passtracker.mkdir()
 
-URLs_tools = passtracker / "𝐆𝐎𝐎𝐃"
+URLs_tools = passtracker / "GOOD"
 if not URLs_tools.exists():
     URLs_tools.mkdir()
 
